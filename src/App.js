@@ -30,7 +30,8 @@
 // export { GlobalStateContext };
 
 import React, { useContext, createContext } from 'react';
-import { GlobalStateContext } from './App';
+import { GlobalStateContext } from './Child';
+import ChildComponent from './Child';
 const App = () => {
   const [state, setState] = useContext(GlobalStateContext);
   const handleClick = () => {
@@ -38,6 +39,7 @@ const App = () => {
   };
   return (
     <div>
+      <ChildComponent />
       <p>{state.message}</p>
       <button onClick={handleClick}>Update State</button>
     </div>

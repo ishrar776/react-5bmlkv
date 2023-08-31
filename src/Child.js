@@ -26,7 +26,7 @@ import React, { useState, createContext } from 'react';
 //import ChildComponent from './Child';
 const GlobalStateContext = createContext();
 
-const App = ({ children }) => {
+const ChildComponent = ({ children }) => {
   const [state, setState] = useState({});
 
   return (
@@ -35,5 +35,5 @@ const App = ({ children }) => {
     </GlobalStateContext.Provider>
   );
 };
-export default App;
+export default ChildComponent;
 export { GlobalStateContext };
