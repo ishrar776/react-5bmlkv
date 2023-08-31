@@ -22,9 +22,9 @@ const App = ({ children }) => {
 
   return (
     <GlobalStateContext.Provider value={[state, setState]}>
-      {children}israr <ChildComponent/>
+      <ChildComponent />
     </GlobalStateContext.Provider>
   );
 };
 export default App;
-export {GlobalStateContext};
+export { GlobalStateContext };
