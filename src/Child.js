@@ -6,18 +6,34 @@
 // };
 // export default Child;
 
-import React, { useContext, createContext } from 'react';
-import { GlobalStateContext } from './App';
-const ChildComponent = () => {
-  const [state, setState] = useContext(GlobalStateContext);
-  const handleClick = () => {
-    setState((prevState) => ({ ...prevState, message: 'Hello, world!' }));
-  };
+// import React, { useContext, createContext } from 'react';
+// import { GlobalStateContext } from './App';
+// const ChildComponent = () => {
+//   const [state, setState] = useContext(GlobalStateContext);
+//   const handleClick = () => {
+//     setState((prevState) => ({ ...prevState, message: 'Hello, world!' }));
+//   };
+//   return (
+//     <div>
+//       <p>{state.message}</p>
+//       <button onClick={handleClick}>Update State</button>
+//     </div>
+//   );
+// };
+// export default ChildComponent;
+
+import React, { useState, createContext } from 'react';
+//import ChildComponent from './Child';
+const GlobalStateContext = createContext();
+
+const App = ({ children }) => {
+  const [state, setState] = useState({});
+
   return (
-    <div>
-      <p>{state.message}</p>
-      <button onClick={handleClick}>Update State</button>
-    </div>
+    <GlobalStateContext.Provider value={[state, setState]}>
+      {children}
+    </GlobalStateContext.Provider>
   );
 };
-export default ChildComponent;
+export default App;
+export { GlobalStateContext };
